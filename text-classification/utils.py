@@ -90,3 +90,18 @@ def load_pickle(filepath: str) -> Any:
     """
     with open(filepath, "rb") as f:
         return pickle.load(f)
+
+
+def load_json(filepath: str) -> Any:
+    """
+    Loads and returns the contents of a JSON file.
+
+    Args:
+        filepath (str): The path to the JSON file.
+
+    Returns:
+        Any: The parsed contents of the JSON file as a Python object
+             (usually a dict or list).
+    """
+    with open(filepath, "r") as f:
+        return json.load(f)
