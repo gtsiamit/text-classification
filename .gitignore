@@ -2,3 +2,4 @@ __pycache__
 .DS_Store
 .vscode
 text-classification/dataset
+text-classification/output_finetune

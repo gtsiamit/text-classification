@@ -1,4 +1,5 @@
 import pandas as pd
+import json
 
 
 def load_data(file_path):
@@ -35,3 +36,28 @@ def filter_df_by_label(df, label):
     else:
         print("DataFrame is None.")
         return None
+
+
+def store_df(df: pd.DataFrame, filepath: str) -> None:
+    """
+    Save a pandas DataFrame to a csv file.
+
+    Args:
+        df (pd.DataFrame): The DataFrame to save.
+        filepath (str): The path to save the file.
+    """
+
+    df.to_csv(filepath, sep=",", index=False, header=True)
+
+
+def store_json(filepath: str, data: dict) -> None:
+    """
+    Save a dictionary to a JSON file.
+
+    Args:
+        filepath (str): The path to save the file.
+        data (dict): The dictionary to save.
+    """
+
+    with open(filepath, "w") as f:
+        json.dump(data, f)
