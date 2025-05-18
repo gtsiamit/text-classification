@@ -1,5 +1,7 @@
 import pandas as pd
 import json
+from typing import Any
+import pickle
 
 
 def load_data(file_path):
@@ -61,3 +63,30 @@ def store_json(filepath: str, data: dict) -> None:
 
     with open(filepath, "w") as f:
         json.dump(data, f)
+
+
+def store_pickle(filepath: str, data: Any) -> None:
+    """
+    Stores a Python object to a file using pickle serialization.
+
+    Args:
+        filepath (str): Path to the file where the data will be stored.
+        data (Any): The Python object to serialize and store.
+    """
+
+    with open(filepath, "wb") as f:
+        pickle.dump(data, f)
+
+
+def load_pickle(filepath: str) -> Any:
+    """
+    Loads a Python object from a pickle file.
+
+    Args:
+        filepath (str): Path to the pickle file to load.
+
+    Returns:
+        Any: The deserialized Python object.
+    """
+    with open(filepath, "rb") as f:
+        return pickle.load(f)
