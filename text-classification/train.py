@@ -1,6 +1,6 @@
 import argparse
 import pandas as pd
-from utils import load_data, store_df, store_json, store_pickle
+from helpers.utils import load_data, store_df, store_json, store_pickle
 from transformers import AutoTokenizer
 import numpy as np
 from transformers import AutoModelForSequenceClassification
@@ -8,8 +8,8 @@ from transformers import Trainer, TrainingArguments
 from sklearn.metrics import accuracy_score, f1_score
 from datasets import Dataset
 from typing import Tuple, Dict
-from data import split_data, encode_labels
-from modeling import (
+from helpers.data import split_data, encode_labels
+from helpers.modeling import (
     set_device,
     define_tokenizer,
     tokenize_data,
