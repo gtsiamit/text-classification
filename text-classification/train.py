@@ -1,6 +1,6 @@
 import argparse
 import pandas as pd
-from utils import load_data, store_df, store_json
+from utils import load_data, store_df, store_json, store_pickle
 from transformers import AutoTokenizer
 import numpy as np
 from transformers import AutoModelForSequenceClassification
@@ -189,6 +189,10 @@ def setup_and_perform_training():
     store_df(df=df_test_results, filepath="./output_finetune/test_preds.csv")
     store_json(filepath="./output_finetune/validation_results.json", data=eval_results)
     print("Evaluation results and predictions on test set stored")
+
+    # Storing label encoder
+    store_pickle(filepath="./output_finetune/le.pkl", data=le)
+    print("Label encoder stored")
 
 
 def main():
